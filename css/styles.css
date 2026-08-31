@@ -464,14 +464,10 @@ ul {
     height: 100%;
     display: block;
     outline: none;
-    cursor: grab;
+    pointer-events: none;
 }
 
-.hero__media .hero-webgl:active {
-    cursor: grabbing;
-}
-
-/* Overlay con instrucciones del modo FPS */
+/* Overlay con el selector de color de aberturas */
 .hero3d-overlay {
     position: absolute;
     bottom: 30px;
@@ -489,40 +485,6 @@ ul {
     border: 1px solid var(--color-primary-light);
     padding: 12px 22px;
     border-radius: var(--border-radius-sm);
-}
-
-.hero3d-overlay__hint {
-    font-family: var(--font-heading);
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--color-primary-light);
-    margin-bottom: 4px;
-}
-
-.hero3d-overlay__keys {
-    font-family: var(--font-body);
-    font-size: 0.75rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--color-secondary-light);
-}
-
-.hero3d-overlay--hidden {
-    opacity: 0;
-}
-
-/* Modo inmersivo (pointer lock activo): desvanece todo excepto el canvas 3D */
-.hero > div:not(.hero__media),
-.hero-scroll-down {
-    transition: opacity 0.7s ease;
-}
-
-.hero--immersive > div:not(.hero__media),
-.hero--immersive .hero-scroll-down {
-    opacity: 0 !important;
-    pointer-events: none;
 }
 
 .hero-bg-overlay {
