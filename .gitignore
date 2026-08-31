@@ -1,0 +1,32 @@
+# Dependencias / herramientas
+node_modules/
+.npm/
+.pnpm-store/
+
+# Vercel
+.vercel/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Variables de entorno / secretos
+.env
+.env.local
+.env.*.local
+
+# Archivos temporales de este proyecto
+*.b64
+*.tmp

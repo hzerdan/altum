@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google Analytics (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ALTUM2026"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ALTUM2026');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Altum: aberturas de aluminio y vidrio de alta gama. Soluciones innovadoras que combinan diseño, estilo, funcionalidad, aislamiento térmico y máxima durabilidad.">
+    <title>Altum | Aberturas de Aluminio y Vidrio de Alta Gama</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css?v=1.4">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/logo-con-bajada.png">
+
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="#inicio" class="logo" aria-label="Altum Inicio">
+                <img src="img/logo-con-bajada.png" alt="Altum Logo" class="logo-img">
+            </a>
+            
+            <nav class="nav" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#inicio" class="nav-link active-link">Inicio</a></li>
+                    <li class="nav-item"><a href="#institucional" class="nav-link">Institucional</a></li>
+                    <li class="nav-item"><a href="#galeria" class="nav-link">Galería</a></li>
+                    <li class="nav-item"><a href="#publicaciones" class="nav-link">Publicaciones</a></li>
+                    <li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="nav-toggle" id="nav-toggle" aria-label="Abrir Menú">
+                    <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="4" y1="6" x2="20" y2="6" class="line-1"></line>
+                        <line x1="4" y1="12" x2="20" y2="12" class="line-2"></line>
+                        <line x1="4" y1="18" x2="20" y2="18" class="line-3"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Hero Section -->
+        <section class="hero" id="inicio">
+            <!-- 3D Interactive Background Image -->
+            <div class="hero__bg-image-wrapper">
+                <img src="img/hero-bg-1.jpg" alt="Fondo Real Altum" class="hero__bg-image" id="hero-bg-image">
+            </div>
+            
+            <!-- WebGL 3D Canvas -->
+            <div class="hero__media">
+                <canvas class="hero-webgl"></canvas>
+            </div>
+            
+            <div class="hero-bg-overlay"></div>
+            
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="hero-tagline">Aberturas de Alta Gama</span>
+                    <h1 class="hero-title">Espacios que Inspiran,<br>Diseños que Perduran</h1>
+                    <p class="hero-description">Transformamos tus ambientes con carpintería en aluminio y vidrio de la más alta calidad. Fusionamos estilo, hermeticidad y sofisticación arquitectónica.</p>
+                    <div class="hero-actions-group">
+                        <a href="#contacto" class="btn btn-primary btn-lg">Iniciar Proyecto</a>
+                        <a href="#galeria" class="btn btn-outline btn-lg">Explorar Galería</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Access to interaction instructions -->
+            <button class="hero-help-btn" id="hero-help-btn" aria-label="Ver guía de controles 3D e interacción">
+                <svg class="help-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+                <span>Guía 3D</span>
+            </button>
+            
+            <div class="hero-scroll-down">
+                <a href="#institucional" aria-label="Ir a sección institucional">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 5v14M19 12l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- Institutional Section -->
+        <section class="section institutional" id="institucional">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle">Quiénes Somos</span>
+                    <h2 class="section-title">Innovación, Diseño y Confianza</h2>
+                    <div class="section-title-line"></div>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h3 class="about-lead">En Altum diseñamos y fabricamos aberturas premium que transforman tus espacios con estilo y funcionalidad.</h3>
+                        <p class="about-text">Nuestra marca es reflejo de modernidad, profesionalismo y un compromiso inquebrantable con la excelencia. Nos especializamos en brindar soluciones de aluminio y vidrio a medida que combinan hermeticidad, practicidad y confort acústico y térmico. Cada pieza es elaborada bajo rigurosos estándares de calidad para asegurar durabilidad y belleza estética.</p>
+                        
+                        <div class="about-features">
+                            <div class="feature-item">
+                                <div class="feature-icon-wrapper">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="feature-info">
+                                    <h4 class="feature-title">Garantía de Calidad</h4>
+                                    <p class="feature-desc">Materiales seleccionados y procesos tecnológicos avanzados para aberturas robustas.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon-wrapper">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="feature-info">
+                                    <h4 class="feature-title">Diseño a Medida</h4>
+                                    <p class="feature-desc">Adaptamos cada diseño a la visión de arquitectos y propietarios exigentes.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-visual">
+                        <div class="glass-card about-card">
+                            <img src="img/logo-con-bajada.png" alt="Altum Identidad" class="about-card-logo">
+                            <div class="values-slider">
+                                <div class="value-slide">
+                                    <h4 class="value-title">Nuestra Misión</h4>
+                                    <p class="value-desc">Proporcionar aberturas de aluminio y vidrio excepcionales que eleven el confort, la seguridad y el diseño arquitectónico de cada hogar y edificio.</p>
+                                </div>
+                                <div class="value-slide">
+                                    <h4 class="value-title">Nuestra Visión</h4>
+                                    <p class="value-desc">Ser la marca líder y referente en carpintería de alta gama, reconocida por la innovación técnica, atención personalizada y acabados impecables.</p>
+                                </div>
+                                <div class="value-slide">
+                                    <h4 class="value-title">Nuestros Valores</h4>
+                                    <p class="value-desc">Integridad, precisión técnica, compromiso con la satisfacción del cliente y pasión por los detalles estéticos y constructivos.</p>
+                                </div>
+                            </div>
+                            <!-- Indicators for Values Slider -->
+                            <div class="slider-dots">
+                                <button class="dot active" aria-label="Slide 1"></button>
+                                <button class="dot" aria-label="Slide 2"></button>
+                                <button class="dot" aria-label="Slide 3"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Gallery Section (Photos Slider) -->
+        <section class="section new-gallery-section" id="galeria">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle">Obras</span>
+                    <h2 class="section-title">Galería de Trabajos</h2>
+                    <div class="section-title-line"></div>
+                    <p class="section-description">Explora una selección exclusiva de nuestros trabajos reales de instalación y perfilería en obra, mostrando la precisión y terminación de Altum.</p>
+                </div>
+
+                <div class="slider-wrapper">
+                    <!-- Navigation Buttons -->
+                    <button class="slider-btn prev-btn" id="slider-prev" aria-label="Imagen anterior">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15,18 9,12 15,6"/>
+                        </svg>
+                    </button>
+                    <button class="slider-btn next-btn" id="slider-next" aria-label="Imagen siguiente">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9,18 15,12 9,6"/>
+                        </svg>
+                    </button>
+                    
+                    <!-- Slider Track -->
+                    <div class="slider-track" id="slider-track">
+                        <div class="slider-loading" style="text-align: center; color: var(--color-secondary-light); padding: 40px; font-family: var(--font-body); display: flex; align-items: center; justify-content: center; height: 100%;">Cargando fotos reales...</div>
+                    </div>
+
+                    <!-- Slider Dots -->
+                    <div class="slider-nav-dots" id="slider-dots">
+                        <!-- Creados dinámicamente -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section (Formerly Gallery) -->
+        <section class="section gallery-section" id="publicaciones">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle">Publicaciones</span>
+                    <h2 class="section-title">Trabajos Recientes</h2>
+                    <div class="section-title-line"></div>
+                    <p class="section-description">Nuestras últimas novedades y diseños compartidos en redes. Conoce el día a día de Altum y las últimas tendencias en carpintería de aluminio.</p>
+                </div>
+
+                <div class="gallery-grid" id="gallery-grid">
+                    <!-- Image Card 1 -->
+                    <div class="gallery-item" data-category="mamparas" data-index="0">
+                        <div class="gallery-img-wrapper">
+                            <img src="img/project-3.jpg" alt="Cerramiento de Aluminio Moderno - Altum" loading="lazy">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <span class="gallery-tag">Cerramientos</span>
+                                    <h3 class="gallery-item-title">Estructura Modular Integrada</h3>
+                                </div>
+                                <div class="gallery-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image Card 2 -->
+                    <div class="gallery-item" data-category="mamparas" data-index="1">
+                        <div class="gallery-img-wrapper">
+                            <img src="img/project-5.jpg" alt="Mampara de Baño Moderna - Altum" loading="lazy">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <span class="gallery-tag">Mamparas</span>
+                                    <h3 class="gallery-item-title">Mampara de Baño Minimalista</h3>
+                                </div>
+                                <div class="gallery-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image Card 3 -->
+                    <div class="gallery-item" data-category="vidrio" data-index="2">
+                        <div class="gallery-img-wrapper">
+                            <img src="img/project-7.jpg" alt="Baranda de Vidrio y Aluminio - Altum" loading="lazy">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <span class="gallery-tag">Cerramientos</span>
+                                    <h3 class="gallery-item-title">Baranda en Cristal Templado</h3>
+                                </div>
+                                <div class="gallery-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image Card 4 -->
+                    <div class="gallery-item" data-category="vidrio" data-index="3">
+                        <div class="gallery-img-wrapper">
+                            <img src="img/project-10.jpg" alt="Doble Vidriado Aberturas - Altum" loading="lazy">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <span class="gallery-tag">Detalles</span>
+                                    <h3 class="gallery-item-title">Perfilería de Aluminio Anodizado</h3>
+                                </div>
+                                <div class="gallery-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- NOTA para Hugo/Bruno: este grid está pensado para 12 fotos (ver CSS). Le pedimos a Bruno 8 fotos
+                     limpias de trabajos reales para completar el diseño como estaba planeado. -->
+                <p class="section-description" style="text-align:center; margin-top: 24px; opacity: 0.7;">
+                    Próximamente más publicaciones — estamos sumando fotos de nuestros últimos trabajos.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section contact" id="contacto">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info-panel">
+                        <span class="section-subtitle">Contacto</span>
+                        <h2 class="section-title text-left">Hablemos de tu Próximo Proyecto</h2>
+                        <p class="contact-lead">¿Tienes una idea en mente para tu hogar u obra? Completa el formulario o contáctanos por nuestros canales oficiales. Estaremos encantados de asesorarte y cotizar tu proyecto sin compromiso.</p>
+                        
+                        <ul class="contact-details-list">
+                            <li>
+                                <div class="contact-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-detail-text">
+                                    <span>Teléfono</span>
+                                    <a href="tel:+541155550199">+54 11 5555-0199</a>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <div class="contact-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                        <polyline points="22,6 12,13 2,6"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-detail-text">
+                                    <span>Correo Electrónico</span>
+                                    <a href="mailto:info@altum.com.ar">info@altum.com.ar</a>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <div class="contact-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-detail-text">
+                                    <span>Ubicación</span>
+                                    <p>Av. del Libertador 1500, Vicente López, Buenos Aires</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-form-panel">
+                        <div class="glass-card contact-card">
+                            <form id="contact-form" class="contact-form" novalidate>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="name">Nombre Completo *</label>
+                                        <input type="text" id="name" name="name" class="form-control" placeholder="Ej. Juan Pérez" required>
+                                        <span class="error-msg" id="name-error">El nombre es requerido</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row split">
+                                    <div class="form-group">
+                                        <label for="email">Correo Electrónico *</label>
+                                        <input type="email" id="email" name="email" class="form-control" placeholder="Ej. juan@correo.com" required>
+                                        <span class="error-msg" id="email-error">Ingresa un correo válido</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Teléfono *</label>
+                                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="Ej. 11 5555 5555" required>
+                                        <span class="error-msg" id="phone-error">El teléfono es requerido</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="message">Mensaje / Consulta *</label>
+                                        <textarea id="message" name="message" class="form-control" rows="5" placeholder="Cuéntanos detalles de tu proyecto (dimensiones, tipo de aberturas, etc.)..." required></textarea>
+                                        <span class="error-msg" id="message-error">Escribe tu consulta</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <button type="submit" class="btn btn-primary btn-block btn-lg" id="submit-btn">
+                                        <span class="btn-text">Enviar Mensaje</span>
+                                        <span class="btn-loader"></span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="#inicio" class="footer-logo">
+                    <img src="img/logo-con-bajada.png" alt="Altum Logo Completo">
+                </a>
+                <p class="footer-desc">Soluciones excepcionales de aberturas en aluminio y vidrio que aportan seguridad, diseño y confort térmico a tus espacios residenciales y corporativos.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4 class="footer-title">Enlaces Rápidos</h4>
+                <ul class="footer-links-list">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#institucional">Institucional</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#publicaciones">Publicaciones</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-social">
+                <h4 class="footer-title">Síguenos</h4>
+                <p class="footer-social-desc">Descubre nuestros últimos trabajos, novedades e inspiración en nuestras redes sociales oficiales.</p>
+                <div class="social-icons">
+                    <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram de Altum">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                        <span>Instagram (@Altum)</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container footer-bottom-container">
+                <p class="copyright">&copy; 2026 Altum. Todos los derechos reservados. Desarrollado por Sebastián Patricio Medina Naessens.</p>
+                <div class="legal-links">
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Native Lightbox Modal -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualizador de imágenes">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar">&times;</button>
+        <button class="lightbox-arrow lightbox-prev" id="lightbox-prev" aria-label="Imagen anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15,18 9,12 15,6"/>
+            </svg>
+        </button>
+        <button class="lightbox-arrow lightbox-next" id="lightbox-next" aria-label="Imagen siguiente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9,18 15,12 9,6"/>
+            </svg>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="" class="lightbox-img" id="lightbox-img">
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- Help/Interaction Guide Modal -->
+    <div class="help-modal" id="help-modal" role="dialog" aria-modal="true" aria-label="Guía de interacción tridimensional">
+        <div class="help-modal-content glass-card">
+            <button class="help-modal-close" id="help-modal-close" aria-label="Cerrar guía">&times;</button>
+            <h3 class="help-modal-title">Guía de Interacción 3D</h3>
+            <div class="help-modal-divider"></div>
+            
+            <div class="help-modal-grid">
+                <div class="help-group">
+                    <h4>1. Exploración Inmersiva 3D</h4>
+                    <p class="help-intro">Haz clic sobre el fondo del Hero para tomar control de la cámara en primera persona:</p>
+                    <ul class="help-keys-list">
+                        <li><kbd>Mouse</kbd> <span>Mover para mirar alrededor</span></li>
+                        <li><kbd>W</kbd> / <kbd>A</kbd> / <kbd>S</kbd> / <kbd>D</kbd> <span>Moverse (volar) en el espacio</span></li>
+                        <li><kbd>Espacio</kbd> <span>Subir / Elevarse</span></li>
+                        <li><kbd>Shift</kbd> <span>Bajar / Descender</span></li>
+                        <li><kbd>ESC</kbd> <span>Salir de la exploración</span></li>
+                    </ul>
+                </div>
+                
+                <div class="help-group">
+                    <h4>2. Perspectiva 3D del Fondo</h4>
+                    <p class="help-intro">El fondo fotográfico se inclina de manera automática con el movimiento de tu mouse. También puedes inclinarlo manualmente con las teclas:</p>
+                    <ul class="help-keys-list">
+                        <li><kbd>Mouse</kbd> <span>Mueve el cursor libremente en la pantalla</span></li>
+                        <li><kbd>A</kbd> o <kbd>←</kbd> <span>Inclinar a la izquierda</span></li>
+                        <li><kbd>D</kbd> o <kbd>→</kbd> <span>Inclinar a la derecha</span></li>
+                        <li><kbd>W</kbd> o <kbd>↑</kbd> <span>Inclinar hacia arriba</span></li>
+                        <li><kbd>S</kbd> o <kbd>↓</kbd> <span>Inclinar hacia abajo</span></li>
+                    </ul>
+                    <p class="help-note">Nota: Este efecto de profundidad es automático y también se puede manejar por teclado.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5491155550199?text=Hola,%20quisiera%20recibir%20informaci%C3%B3n%20sobre%20las%20aberturas%20Altum." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contacto por WhatsApp">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.003 5.324 5.328 0 11.859 0c3.166.001 6.141 1.233 8.375 3.469 2.235 2.235 3.465 5.21 3.465 8.378 0 6.537-5.325 11.86-11.859 11.86-.001 0-.001 0 0 0-2.006-.001-3.98-.521-5.733-1.512L0 24zm6.49-4.888c1.648.978 3.254 1.486 4.795 1.488 5.34 0 9.697-4.356 9.699-9.698C21.043 5.56 16.942 1.5 11.861 1.5c-5.08 0-9.215 4.135-9.217 9.216.002 1.637.525 3.235 1.511 4.747l-.989 3.612 3.701-.971c.068.04.137.08.205.12zM17.478 14.39c-.312-.156-1.848-.912-2.131-1.015-.282-.103-.489-.156-.693.156-.205.312-.79.99-.97 1.196-.18.205-.36.23-.672.074-1.86-.93-2.934-1.63-4.082-3.602-.302-.518.302-.481.865-1.6.094-.188.047-.353-.024-.509-.071-.156-.693-1.67-.95-2.285-.25-.601-.505-.519-.693-.529l-.592-.01c-.205 0-.539.077-.821.385-.282.308-1.078 1.054-1.078 2.57s1.104 2.982 1.258 3.188c.154.205 2.167 3.31 5.25 4.643.734.317 1.307.507 1.753.648.739.235 1.412.202 1.944.123.593-.088 1.848-.756 2.11-.926.262-.17.262-.315.184-.471l-.314-.156z"/>
+        </svg>
+    </a>
+
+    <!-- JavaScript logic -->
+    <script src="js/script.js?v=1.3"></script>
+    <!-- Three.js 3D Background Script -->
+    <script type="module" src="js/hero3d.js?v=1.3"></script>
+</body>
+</html>
