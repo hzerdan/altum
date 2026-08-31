@@ -14,14 +14,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Altum: aberturas de aluminio y vidrio de alta gama. Soluciones innovadoras que combinan diseño, estilo, funcionalidad, aislamiento térmico y máxima durabilidad.">
     <title>Altum | Aberturas de Aluminio y Vidrio de Alta Gama</title>
-    
+
+    <!-- Tema claro/oscuro: se aplica ANTES de pintar la pagina para evitar un
+         parpadeo del tema incorrecto. Si el usuario ya eligio antes, se respeta
+         esa eleccion (localStorage); si no, se sigue la preferencia del sistema. -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('altum-theme');
+          if (saved === 'light' || saved === 'dark') {
+            document.documentElement.setAttribute('data-theme', saved);
+          }
+        } catch (e) {}
+      })();
+    </script>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- CSS Stylesheet -->
-    <link rel="stylesheet" href="css/styles.css?v=1.4">
+    <link rel="stylesheet" href="css/styles.css?v=1.5">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="img/logo-con-bajada.png">
@@ -50,6 +64,15 @@
             </nav>
 
             <div class="header-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar a modo claro">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke-linecap="round"/>
+                    </svg>
+                </button>
                 <button class="nav-toggle" id="nav-toggle" aria-label="Abrir Menú">
                     <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="4" y1="6" x2="20" y2="6" class="line-1"></line>
@@ -653,8 +676,8 @@
     </a>
 
     <!-- JavaScript logic -->
-    <script src="js/script.js?v=1.3"></script>
+    <script src="js/script.js?v=1.4"></script>
     <!-- Three.js 3D Background Script -->
-    <script type="module" src="js/hero3d.js?v=1.3"></script>
+    <script type="module" src="js/hero3d.js?v=1.4"></script>
 </body>
 </html>

@@ -1,5 +1,38 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
+
+    /* ==========================================
+       TEMA CLARO / OSCURO
+       ========================================== */
+    const themeToggleBtn = document.getElementById("theme-toggle");
+
+    const getEffectiveTheme = () => {
+        const explicit = document.documentElement.getAttribute("data-theme");
+        if (explicit === "light" || explicit === "dark") return explicit;
+        return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    };
+
+    const applyThemeLabel = () => {
+        const current = getEffectiveTheme();
+        if (themeToggleBtn) {
+            themeToggleBtn.setAttribute(
+                "aria-label",
+                current === "light" ? "Cambiar a modo oscuro" : "Cambiar a modo claro"
+            );
+        }
+    };
+    applyThemeLabel();
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener("click", () => {
+            const next = getEffectiveTheme() === "light" ? "dark" : "light";
+            document.documentElement.setAttribute("data-theme", next);
+            try {
+                localStorage.setItem("altum-theme", next);
+            } catch (e) {}
+            applyThemeLabel();
+        });
+    }
+
     /* ==========================================
        GSAP ANIMATIONS (Premium Reveal Transitions)
        ========================================== */

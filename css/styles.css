@@ -2,39 +2,99 @@
    DESIGN SYSTEM & VARIABLES
    ========================================== */
 :root {
-    /* Brand Colors (from Manual de Marca) */
+    /* Brand Colors (from Manual de Marca) -- iguales en ambos temas */
     --color-primary: #2D53A1;         /* Azul Corporativo */
     --color-primary-light: #4D76CD;
     --color-primary-dark: #1E376C;
     --color-secondary: #6C7786;       /* Gris Corporativo */
     --color-secondary-light: #8B98A9;
     --color-secondary-dark: #4F5865;
-    
-    /* UI Neutrals & Accent */
     --color-accent: #3B82F6;          /* Bright Blue Accent */
-    --color-dark: #0A0E1A;            /* Rich Deep Dark */
-    --color-dark-surface: #121829;    /* Dark Card Surface */
-    --color-dark-nav: rgba(10, 14, 26, 0.75);
-    --color-light: #F8FAFC;           /* Off-White */
+
+    /* Compat: alias historicos usados en el resto del archivo */
+    --color-dark: var(--color-bg);
+    --color-dark-surface: var(--color-surface);
+    --color-dark-nav: var(--color-nav-bg);
+    --color-light: var(--color-text);
+
+    /* ---------- Tema OSCURO (default del sitio) ---------- */
+    --color-bg: #0A0E1A;              /* Fondo general */
+    --color-bg-alt: #0F1526;          /* Fondo alterno (degrade de Contacto) */
+    --color-surface: #121829;         /* Tarjetas solidas (toast, nav mobile) */
+    --color-surface-alpha: rgba(18, 24, 41, 0.6);   /* Glass cards */
+    --color-nav-bg: rgba(10, 14, 26, 0.75);         /* Header al hacer scroll */
+    --color-input-bg: rgba(10, 14, 26, 0.6);
+    --color-input-bg-focus: rgba(10, 14, 26, 0.8);
+    --color-text: #F8FAFC;            /* Texto de cuerpo */
+    --color-heading: #FFFFFF;         /* Titulos */
+    --color-text-muted: #8B98A9;      /* Texto secundario (= --color-secondary-light) */
     --color-border: rgba(255, 255, 255, 0.06);
     --color-border-focus: rgba(45, 83, 161, 0.4);
-    
+    --color-chip-bg: rgba(255, 255, 255, 0.04);     /* Chips sutiles (social icons) */
+    --color-dot-bg: rgba(255, 255, 255, 0.2);       /* Puntitos de sliders sobre glass-card */
+    --color-scrollbar-track: var(--color-bg);
+    --color-scrollbar-thumb: rgba(255, 255, 255, 0.1);
+
     /* Typography */
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Lato', sans-serif;
-    
+
     /* Shadows & Glows */
     --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     --glow-primary: 0 0 20px rgba(45, 83, 161, 0.3);
-    
+
     /* Layout Constants */
     --header-height: 80px;
     --border-radius-sm: 8px;
     --border-radius-md: 16px;
     --border-radius-lg: 24px;
     --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ---------- Tema CLARO ----------
+   Se activa automaticamente si el sistema operativo pide modo claro
+   (y el usuario no eligio explicitamente "oscuro"), o manualmente
+   con el boton de la cabecera (guarda la eleccion en localStorage). */
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+        --color-bg: #F7F9FC;
+        --color-bg-alt: #EDF1F7;
+        --color-surface: #FFFFFF;
+        --color-surface-alpha: rgba(255, 255, 255, 0.75);
+        --color-nav-bg: rgba(247, 249, 252, 0.85);
+        --color-input-bg: rgba(255, 255, 255, 0.9);
+        --color-input-bg-focus: #FFFFFF;
+        --color-text: #2A3140;
+        --color-heading: #10151F;
+        --color-text-muted: #5B6472;
+        --color-border: rgba(16, 21, 31, 0.1);
+        --color-border-focus: rgba(45, 83, 161, 0.35);
+        --color-chip-bg: rgba(16, 21, 31, 0.04);
+        --color-dot-bg: rgba(16, 21, 31, 0.15);
+        --color-scrollbar-track: var(--color-bg-alt);
+        --color-scrollbar-thumb: rgba(16, 21, 31, 0.15);
+    }
+}
+
+:root[data-theme="light"] {
+    --color-bg: #F7F9FC;
+    --color-bg-alt: #EDF1F7;
+    --color-surface: #FFFFFF;
+    --color-surface-alpha: rgba(255, 255, 255, 0.75);
+    --color-nav-bg: rgba(247, 249, 252, 0.85);
+    --color-input-bg: rgba(255, 255, 255, 0.9);
+    --color-input-bg-focus: #FFFFFF;
+    --color-text: #2A3140;
+    --color-heading: #10151F;
+    --color-text-muted: #5B6472;
+    --color-border: rgba(16, 21, 31, 0.1);
+    --color-border-focus: rgba(45, 83, 161, 0.35);
+    --color-chip-bg: rgba(16, 21, 31, 0.04);
+    --color-dot-bg: rgba(16, 21, 31, 0.15);
+    --color-scrollbar-track: var(--color-bg-alt);
+    --color-scrollbar-thumb: rgba(16, 21, 31, 0.15);
 }
 
 /* ==========================================
@@ -53,8 +113,8 @@ html {
 }
 
 body {
-    background-color: var(--color-dark);
-    color: var(--color-light);
+    background-color: var(--color-bg);
+    color: var(--color-text);
     font-family: var(--font-body);
     font-weight: 400;
     line-height: 1.6;
@@ -111,7 +171,7 @@ ul {
 }
 
 .glass-card {
-    background: rgba(18, 24, 41, 0.6);
+    background: var(--color-surface-alpha);
     border: 1px solid var(--color-border);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -222,7 +282,7 @@ ul {
     font-size: 2.5rem;
     font-weight: 700;
     letter-spacing: -0.5px;
-    color: #fff;
+    color: var(--color-heading);
     line-height: 1.2;
 }
 
@@ -261,7 +321,7 @@ ul {
 }
 
 .header.scrolled {
-    background-color: var(--color-dark-nav);
+    background-color: var(--color-nav-bg);
     border-bottom: 1px solid var(--color-border);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -323,7 +383,12 @@ ul {
 
 .nav-link:hover,
 .nav-link.active-link {
-    color: #fff;
+    color: #fff; /* header transparente sobre la foto del hero: siempre claro */
+}
+
+.header.scrolled .nav-link:hover,
+.header.scrolled .nav-link.active-link {
+    color: var(--color-heading); /* header solido: se adapta al tema */
 }
 
 .nav-link.active-link::after,
@@ -342,11 +407,70 @@ ul {
     font-size: 0.9rem;
 }
 
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    color: #fff; /* header transparente sobre la foto del hero: siempre claro */
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.header.scrolled .theme-toggle {
+    color: var(--color-heading);
+}
+
+.header.scrolled .theme-toggle:hover {
+    background-color: var(--color-chip-bg);
+}
+
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+}
+
+.theme-toggle .icon-moon {
+    display: block;
+}
+
+.theme-toggle .icon-sun {
+    display: none;
+}
+
+:root[data-theme="light"] .theme-toggle .icon-moon {
+    display: none;
+}
+
+:root[data-theme="light"] .theme-toggle .icon-sun {
+    display: block;
+}
+
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) .theme-toggle .icon-moon {
+        display: none;
+    }
+    :root:not([data-theme="dark"]) .theme-toggle .icon-sun {
+        display: block;
+    }
+}
+
 .nav-toggle {
     display: none;
-    color: #fff;
+    color: #fff; /* header transparente sobre la foto del hero: siempre claro */
     cursor: pointer;
     z-index: 1001;
+}
+
+.header.scrolled .nav-toggle {
+    color: var(--color-heading);
 }
 
 .hamburger-icon {
@@ -380,20 +504,27 @@ ul {
         width: 100%;
         max-width: 320px;
         height: 100vh;
-        background-color: var(--color-dark-surface);
+        background-color: var(--color-surface);
         border-left: 1px solid var(--color-border);
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 48px;
         padding: 80px 40px;
-        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
         z-index: 1000;
         box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
     }
 
     .nav.open {
         right: 0;
+    }
+
+    /* El panel mobile siempre tiene fondo solido: los links se adaptan al tema
+       sin depender de si el header esta "scrolled" */
+    .nav.open .nav-link:hover,
+    .nav.open .nav-link.active-link {
+        color: var(--color-heading);
     }
 
     .nav-list {
@@ -626,7 +757,7 @@ ul {
     font-size: 1.5rem;
     font-weight: 500;
     line-height: 1.4;
-    color: #fff;
+    color: var(--color-heading);
     margin-bottom: 20px;
 }
 
@@ -673,7 +804,7 @@ ul {
     font-family: var(--font-heading);
     font-size: 1.15rem;
     font-weight: 600;
-    color: #fff;
+    color: var(--color-heading);
     margin-bottom: 8px;
 }
 
@@ -750,7 +881,7 @@ ul {
     font-family: var(--font-heading);
     font-size: 1.3rem;
     font-weight: 600;
-    color: #fff;
+    color: var(--color-heading);
     margin-bottom: 12px;
 }
 
@@ -769,7 +900,7 @@ ul {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--color-dot-bg);
     cursor: pointer;
     transition: var(--transition-smooth);
 }
@@ -902,7 +1033,7 @@ ul {
    CONTACT SECTION
    ========================================== */
 .contact {
-    background: linear-gradient(to bottom, var(--color-dark), #0f1526);
+    background: linear-gradient(to bottom, var(--color-bg), var(--color-bg-alt));
 }
 
 .contact-grid {
@@ -959,13 +1090,13 @@ ul {
 }
 
 .contact-detail-text p {
-    color: #fff;
+    color: var(--color-heading);
     font-size: 1rem;
     font-weight: 500;
 }
 
 .contact-detail-text a {
-    color: #fff;
+    color: var(--color-heading);
     font-size: 1.1rem;
     font-weight: 600;
 }
@@ -1005,20 +1136,20 @@ ul {
     font-family: var(--font-heading);
     font-weight: 500;
     font-size: 0.85rem;
-    color: #fff;
+    color: var(--color-heading);
     letter-spacing: 0.5px;
 }
 
 .form-control {
     width: 100%;
-    background-color: rgba(10, 14, 26, 0.6);
+    background-color: var(--color-input-bg);
     border: 1px solid var(--color-border);
     padding: 14px 18px;
     border-radius: var(--border-radius-sm);
-    color: #fff;
+    color: var(--color-heading);
     font-family: var(--font-body);
     font-size: 0.95rem;
-    transition: var(--transition-smooth);
+    transition: border-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .form-control::placeholder {
@@ -1029,7 +1160,7 @@ ul {
 .form-control:focus {
     border-color: var(--color-primary-light);
     box-shadow: 0 0 0 3px rgba(77, 118, 205, 0.15);
-    background-color: rgba(10, 14, 26, 0.8);
+    background-color: var(--color-input-bg-focus);
 }
 
 /* Validation styles */
@@ -1115,7 +1246,7 @@ ul {
     font-family: var(--font-heading);
     font-size: 1.15rem;
     font-weight: 600;
-    color: #fff;
+    color: var(--color-heading);
     margin-bottom: 24px;
 }
 
@@ -1131,7 +1262,7 @@ ul {
 }
 
 .footer-links-list a:hover {
-    color: #fff;
+    color: var(--color-heading);
     padding-left: 6px;
 }
 
@@ -1150,7 +1281,7 @@ ul {
     display: flex;
     align-items: center;
     gap: 12px;
-    background-color: rgba(255, 255, 255, 0.04);
+    background-color: var(--color-chip-bg);
     border: 1px solid var(--color-border);
     padding: 12px 20px;
     border-radius: var(--border-radius-sm);
@@ -1160,7 +1291,7 @@ ul {
 .social-icon:hover {
     background-color: rgba(45, 83, 161, 0.15);
     border-color: rgba(45, 83, 161, 0.3);
-    color: #fff;
+    color: var(--color-heading);
     transform: translateY(-2px);
     box-shadow: var(--shadow-sm);
 }
@@ -1195,7 +1326,7 @@ ul {
 }
 
 .legal-links a:hover {
-    color: #fff;
+    color: var(--color-heading);
 }
 
 @media (max-width: 992px) {
@@ -1367,12 +1498,12 @@ ul {
 }
 
 .toast {
-    background-color: #121829;
+    background-color: var(--color-surface);
     border: 1px solid var(--color-border);
     border-left: 4px solid var(--color-primary);
     padding: 16px 24px;
     border-radius: var(--border-radius-sm);
-    color: #fff;
+    color: var(--color-heading);
     font-family: var(--font-body);
     font-size: 0.95rem;
     display: flex;
@@ -1423,13 +1554,13 @@ ul {
 }
 
 ::-webkit-scrollbar-track {
-    background-color: var(--color-dark);
+    background-color: var(--color-scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--color-scrollbar-thumb);
     border-radius: 5px;
-    border: 2px solid var(--color-dark);
+    border: 2px solid var(--color-scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -1543,14 +1674,14 @@ ul {
     top: 20px;
     right: 20px;
     font-size: 2.2rem;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--color-text-muted);
     cursor: pointer;
     transition: var(--transition-smooth);
     line-height: 1;
 }
 
 .help-modal-close:hover {
-    color: #fff;
+    color: var(--color-heading);
     transform: scale(1.1);
 }
 
@@ -1558,7 +1689,7 @@ ul {
     font-family: var(--font-heading);
     font-size: 1.8rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--color-heading);
     margin-bottom: 8px;
 }
 
@@ -1604,22 +1735,22 @@ ul {
 }
 
 .help-keys-list kbd {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-bottom: 3px solid rgba(255, 255, 255, 0.25);
+    background: var(--color-chip-bg);
+    border: 1px solid var(--color-border);
+    border-bottom: 3px solid var(--color-border);
     padding: 4px 10px;
     border-radius: 4px;
     font-family: var(--font-heading);
     font-size: 0.8rem;
     font-weight: 600;
-    color: #fff;
+    color: var(--color-heading);
     box-shadow: var(--shadow-sm);
     min-width: 44px;
     text-align: center;
 }
 
 .help-keys-list span {
-    color: var(--color-light);
+    color: var(--color-heading);
 }
 
 .help-note {
