@@ -748,37 +748,63 @@ document.addEventListener("DOMContentLoaded", () => {
         phoneInput.addEventListener("blur", validatePhone);
         messageInput.addEventListener("blur", validateMessage);
 
-        form.addEventListener("submit", (e) => {
+        // Endpoint de FormSubmit.co para Altum. Se usa el email directo (todavia
+        // no tenemos el identificador/hash privado de Altum -- ese se obtiene
+        // recien despues de que altumaberturas@gmail.com confirme el mail de
+        // activacion que FormSubmit manda en el PRIMER envio real).
+        const FORM_ENDPOINT = "https://formsubmit.co/ajax/altumaberturas@gmail.com";
+
+        form.addEventListener("submit", async (e) => {
             e.preventDefault();
-            
+
             const isNameValid = validateName();
             const isEmailValid = validateEmail();
             const isPhoneValid = validatePhone();
             const isMessageValid = validateMessage();
-            
+
             if (isNameValid && isEmailValid && isPhoneValid && isMessageValid) {
                 submitBtn.classList.add("loading");
                 submitBtn.disabled = true;
-                
-                setTimeout(() => {
-                    submitBtn.classList.remove("loading");
-                    submitBtn.disabled = false;
-                    
+
+                const name = nameInput.value.trim();
+
+                try {
+                    const response = await fetch(FORM_ENDPOINT, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Accept": "application/json"
+                        },
+                        body: JSON.stringify({
+                            _subject: `Nuevo mensaje de contacto en Altum (de ${name})`,
+                            _template: "table",
+                            Nombre: name,
+                            Email: emailInput.value.trim(),
+                            "Teléfono": phoneInput.value.trim(),
+                            Mensaje: messageInput.value.trim()
+                        })
+                    });
+
+                    if (!response.ok) throw new Error("FormSubmit respondio con error");
+
                     showToast("¡Mensaje enviado con éxito! Nos contactaremos a la brevedad.", "success");
-                    
+
                     form.reset();
-                    
                     [nameInput, emailInput, phoneInput, messageInput].forEach(input => {
                         input.classList.remove("valid");
                         input.classList.remove("invalid");
                         input.parentElement.classList.remove("has-error");
                     });
-                    
-                }, 1800);
-                
+                } catch (err) {
+                    showToast("No pudimos enviar tu mensaje. Escribinos por WhatsApp o a altumaberturas@gmail.com.", "error");
+                } finally {
+                    submitBtn.classList.remove("loading");
+                    submitBtn.disabled = false;
+                }
+
             } else {
                 showToast("Por favor, corrige los errores en el formulario.", "error");
-                
+
                 const firstInvalid = form.querySelector(".invalid");
                 if (firstInvalid) {
                     firstInvalid.focus();
