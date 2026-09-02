@@ -43,7 +43,8 @@ if (!canvas || !hero || !heroMedia) {
   scene.fog = new THREE.Fog(0x0a0e1a, 15, 55);
 
   /* ---------- Material compartido (Wireframe color celeste de alta gama) ---------- */
-  const wireMat = new THREE.MeshBasicMaterial({ wireframe: true, color: 0x4D76CD }); // Matching --color-primary-light
+  // transparent + opacity: deja ver mejor la foto de fondo a traves de las lineas
+  const wireMat = new THREE.MeshBasicMaterial({ wireframe: true, color: 0x4D76CD, transparent: true, opacity: 0.55 }); // Matching --color-primary-light
 
   /* ---------- Constructor de Modelos de Aberturas 3D ---------- */
   const createOpening = (typeIndex, material) => {

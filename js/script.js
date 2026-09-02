@@ -11,6 +11,18 @@ document.addEventListener("DOMContentLoaded", () => {
         return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
     };
 
+    const themeLogos = document.querySelectorAll(".theme-logo");
+
+    const applyLogos = () => {
+        const current = getEffectiveTheme();
+        themeLogos.forEach((img) => {
+            const wanted = current === "light" ? img.dataset.srcLight : img.dataset.srcDark;
+            if (wanted && img.getAttribute("src") !== wanted) {
+                img.setAttribute("src", wanted);
+            }
+        });
+    };
+
     const applyThemeLabel = () => {
         const current = getEffectiveTheme();
         if (themeToggleBtn) {
@@ -20,7 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
             );
         }
     };
-    applyThemeLabel();
+
+    const applyThemeUI = () => {
+        applyThemeLabel();
+        applyLogos();
+    };
+    applyThemeUI();
 
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener("click", () => {
@@ -29,7 +46,14 @@ document.addEventListener("DOMContentLoaded", () => {
             try {
                 localStorage.setItem("altum-theme", next);
             } catch (e) {}
-            applyThemeLabel();
+            applyThemeUI();
+        });
+    }
+
+    // Si el usuario no eligio tema manualmente, seguir los cambios del sistema
+    if (window.matchMedia) {
+        window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", () => {
+            if (!document.documentElement.getAttribute("data-theme")) applyThemeUI();
         });
     }
 
@@ -49,7 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
         gsap.set(".hero-title", { y: 40, opacity: 0 });
         gsap.set(".hero-description", { y: 30, opacity: 0 });
         gsap.set(".hero-actions-group", { y: 20, opacity: 0 });
-        gsap.set(".hero-help-btn", { opacity: 0, y: 10 });
         gsap.set(".hero-scroll-down", { opacity: 0 });
 
         heroTimeline
@@ -58,7 +81,6 @@ document.addEventListener("DOMContentLoaded", () => {
             .to(".hero-title", { y: 0, opacity: 1 }, "-=1")
             .to(".hero-description", { y: 0, opacity: 1 }, "-=0.9")
             .to(".hero-actions-group", { y: 0, opacity: 1 }, "-=0.8")
-            .to(".hero-help-btn", { y: 0, opacity: 1, duration: 0.8 }, "-=0.7")
             .to(".hero-scroll-down", { opacity: 1, duration: 0.8 }, "-=0.5");
 
         // 2. SCROLL TRIGGER ANIMATIONS
@@ -545,39 +567,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }, 200);
             }, 1000);
         }, 5000);
-    }
-
-    /* ==========================================
-       HELP MODAL LOGIC (GUÍA DE INTERACCIÓN)
-       ========================================== */
-    const helpBtn = document.getElementById("hero-help-btn");
-    const helpModal = document.getElementById("help-modal");
-    const helpModalClose = document.getElementById("help-modal-close");
-
-    if (helpBtn && helpModal && helpModalClose) {
-        helpBtn.addEventListener("click", () => {
-            helpModal.classList.add("open");
-            document.body.classList.add("no-scroll");
-        });
-
-        const closeHelpModal = () => {
-            helpModal.classList.remove("open");
-            document.body.classList.remove("no-scroll");
-        };
-
-        helpModalClose.addEventListener("click", closeHelpModal);
-
-        helpModal.addEventListener("click", (e) => {
-            if (e.target === helpModal) {
-                closeHelpModal();
-            }
-        });
-
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && helpModal.classList.contains("open")) {
-                closeHelpModal();
-            }
-        });
     }
 
     /* ==========================================
