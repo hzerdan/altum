@@ -748,11 +748,10 @@ document.addEventListener("DOMContentLoaded", () => {
         phoneInput.addEventListener("blur", validatePhone);
         messageInput.addEventListener("blur", validateMessage);
 
-        // Endpoint de FormSubmit.co para Altum. Se usa el email directo (todavia
-        // no tenemos el identificador/hash privado de Altum -- ese se obtiene
-        // recien despues de que altumaberturas@gmail.com confirme el mail de
-        // activacion que FormSubmit manda en el PRIMER envio real).
-        const FORM_ENDPOINT = "https://formsubmit.co/ajax/altumaberturas@gmail.com";
+        // Endpoint de FormSubmit.co para Altum. Se usa el identificador privado
+        // (no el mail directo) para que la direccion no quede expuesta en el
+        // codigo del sitio. Ya activado y confirmado por altumaberturas@gmail.com.
+        const FORM_ENDPOINT = "https://formsubmit.co/ajax/c80b4a5121c3e945f884f404f380ce9e";
 
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
