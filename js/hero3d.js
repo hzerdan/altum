@@ -1,8 +1,7 @@
 /* ============================================================
    Altum -- Hero 3D Background (Three.js)
    Escena ambiental: siluetas wireframe de aberturas flotando
-   sobre el fondo, con selector de color para previsualizar
-   distintos acabados de aluminio.
+   sobre el fondo del hero.
    ============================================================ */
 
 import * as THREE              from 'https://esm.sh/three';
@@ -16,22 +15,6 @@ const heroMedia = document.querySelector('.hero__media');
 if (!canvas || !hero || !heroMedia) {
   console.warn('[hero3d] no se encontro .hero / .hero__media / canvas.hero-webgl');
 } else {
-
-  /* ---------- Overlay con selector de color ---------- */
-  const overlay = document.createElement('div');
-  overlay.className = 'hero3d-overlay';
-  overlay.innerHTML =
-    '<div class="hero3d-overlay__box">' +
-      '<div class="hero3d-color-selector" style="display: flex; align-items: center; justify-content: center; gap: 8px; pointer-events: auto;">' +
-        '<span style="font-size: 0.8rem; color: rgba(255,255,255,0.7); margin-right: 4px;">Color de Aberturas:</span>' +
-        '<button class="color-swatch active" data-color="#4D76CD" style="width: 18px; height: 18px; border-radius: 50%; background: #4D76CD; border: 2px solid #fff; cursor: pointer; padding: 0; outline: none; transition: transform 0.2s;" title="Azul" onmouseover="this.style.transform=\'scale(1.25)\'" onmouseout="this.style.transform=\'scale(1)\'"></button>' +
-        '<button class="color-swatch" data-color="#FFFFFF" style="width: 18px; height: 18px; border-radius: 50%; background: #FFFFFF; border: 2px solid rgba(255,255,255,0.2); cursor: pointer; padding: 0; outline: none; transition: transform 0.2s;" title="Blanco" onmouseover="this.style.transform=\'scale(1.25)\'" onmouseout="this.style.transform=\'scale(1)\'"></button>' +
-        '<button class="color-swatch" data-color="#111111" style="width: 18px; height: 18px; border-radius: 50%; background: #111111; border: 2px solid rgba(255,255,255,0.2); cursor: pointer; padding: 0; outline: none; transition: transform 0.2s;" title="Negro" onmouseover="this.style.transform=\'scale(1.25)\'" onmouseout="this.style.transform=\'scale(1)\'"></button>' +
-        '<button class="color-swatch" data-color="#8E9AA6" style="width: 18px; height: 18px; border-radius: 50%; background: #8E9AA6; border: 2px solid rgba(255,255,255,0.2); cursor: pointer; padding: 0; outline: none; transition: transform 0.2s;" title="Gris Anodizado" onmouseover="this.style.transform=\'scale(1.25)\'" onmouseout="this.style.transform=\'scale(1)\'"></button>' +
-        '<button class="color-swatch" data-color="#8B5A2B" style="width: 18px; height: 18px; border-radius: 50%; background: #8B5A2B; border: 2px solid rgba(255,255,255,0.2); cursor: pointer; padding: 0; outline: none; transition: transform 0.2s;" title="Símil Madera" onmouseover="this.style.transform=\'scale(1.25)\'" onmouseout="this.style.transform=\'scale(1)\'"></button>' +
-      '</div>' +
-    '</div>';
-  heroMedia.appendChild(overlay);
 
   /* ---------- Tamaño ---------- */
   const getSize = () => ({ width: hero.clientWidth, height: hero.clientHeight });
@@ -150,25 +133,6 @@ if (!canvas || !hero || !heroMedia) {
   renderer.setClearColor(0x0a0e1a, 0); // alpha 0 = totalmente transparente
   renderer.setSize(sizes.width, sizes.height);
   renderer.setPixelRatio(1);
-
-  /* ---------- Selector de color de aberturas ---------- */
-  setTimeout(() => {
-    const swatches = document.querySelectorAll('.color-swatch');
-    swatches.forEach(swatch => {
-      swatch.addEventListener('click', () => {
-        swatches.forEach(s => {
-          s.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-          s.classList.remove('active');
-        });
-
-        swatch.style.borderColor = '#fff';
-        swatch.classList.add('active');
-
-        const hexColor = swatch.getAttribute('data-color');
-        wireMat.color.setStyle(hexColor);
-      });
-    });
-  }, 100);
 
   /* ---------- Resize ---------- */
   window.addEventListener('resize', () => {
