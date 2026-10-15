@@ -1,21 +1,97 @@
 [
-  "obra-1.jpg",
-  "obra-2.jpg",
-  "obra-3.jpg",
-  "obra-4.jpg",
-  "obra-5.jpg",
-  "obra-6.jpg",
-  "obra-8.jpg",
-  "obra-9.jpg",
-  "obra-10.jpg",
-  "obra-11.jpg",
-  "obra-12.jpg",
-  "obra-13.jpg",
-  "obra-14.jpg",
-  "obra-15.jpg",
-  "obra-16.jpg",
-  "obra-17.jpg",
-  "obra-18.jpg",
-  "obra-19.jpg",
-  "obra-20.jpg"
+  {
+    "file": "obra-1.jpg",
+    "title": "Country Praderas - Yerba Buena",
+    "description": "Aberturas Línea Mass R60 con DVH laminado, cortinas de aluminio motorizadas"
+  },
+  {
+    "file": "obra-2.jpg",
+    "title": "Country El Nogal - Yerba Buena",
+    "description": "Aberturas Línea Mass R60 con DVH laminado, cortinas de aluminio motorizadas"
+  },
+  {
+    "file": "obra-3.jpg",
+    "title": "Viento Sur Country - El Manantial",
+    "description": "Aberturas Línea Mass R60 con DVH laminado de seguridad y control solar"
+  },
+  {
+    "file": "obra-4.jpg",
+    "title": "Edificio Córdoba 1083 - San Miguel de Tucumán",
+    "description": "16 pisos, SUM (2), pileta y local comercial. Aberturas Línea Actual con DVH"
+  },
+  {
+    "file": "obra-5.jpg",
+    "title": "Edificio Belgrano 1651 - San Miguel de Tucumán",
+    "description": "11 pisos, SUM, pileta y local comercial. Aberturas Línea Actual con DVH"
+  },
+  {
+    "file": "obra-6.jpg",
+    "title": "Edificio Crisóstomo Álvarez 1710 - San Miguel de Tucumán",
+    "description": "11 pisos, SUM, pileta y local comercial. Aberturas Línea Actual con DVH"
+  },
+  {
+    "file": "obra-7.jpg",
+    "title": "Barrio Cerrado - Villa Nougués",
+    "description": "Aberturas Línea Modena con DVH laminado de seguridad"
+  },
+  {
+    "file": "obra-8.jpg",
+    "title": "Oliveto Salón de Eventos - Yerba Buena",
+    "description": "Aberturas con vidrio laminado de seguridad"
+  },
+  {
+    "file": "obra-9.jpg",
+    "title": "Country Praderas - Yerba Buena",
+    "description": "Cortinas enrollables de aluminio inyectadas con poliuretano"
+  },
+  {
+    "file": "obra-10.jpg",
+    "title": "Casa CH - Yerba Buena",
+    "description": "Aberturas Línea Actual y Mass R60 con DVH"
+  },
+  {
+    "file": "obra-11.jpg",
+    "title": "Country Pinar 1 - Tafí Viejo",
+    "description": "Aberturas Línea Actual con vidrios laminados de seguridad"
+  },
+  {
+    "file": "obra-12.jpg",
+    "title": "Barrio Privado Alto Verde, Yerba Buena",
+    "description": "Aberturas Línea Modena anodizado natural"
+  },
+  {
+    "file": "obra-13.jpg",
+    "title": "Barrio Privado Praderas del Nogal - Los Nogales",
+    "description": "Aberturas Línea Modena blanco y simil madera"
+  },
+  {
+    "file": "obra-14.jpg",
+    "title": "Casa C Marcos Paz - Yerba Buena",
+    "description": "Aberturas Línea Modena reforzada con vidrios de seguridad"
+  },
+  {
+    "file": "obra-15.jpg",
+    "title": "Vilago Country Club - Tafí Viejo",
+    "description": "Aberturas Línea A40 y Modena 45 con DVH"
+  },
+  {
+    "file": "obra-16.jpg",
+    "title": "Club Náutico - Termas del Río Hondo",
+    "description": "Aberturas Línea Modena con DVH"
+  },
+  {
+    "file": "obra-17.jpg",
+    "title": "Aldora Villa Familiar - La Rinconada",
+    "description": "Aberturas Línea Actual con DVH. Perfiles negros y simil madera"
+  },
+  {
+    "file": "obra-18.jpg",
+    "title": "Casa FY - Yerba Buena",
+    "description": "Aberturas Línea Actual con vidrios de seguridad"
+  },
+  {
+    "file": "obra-19.jpg",
+    "title": "Barrio Privado Alto Verde, Yerba Buena",
+    "description": "Aberturas Línea Modena anodizado natural"
+  }
 ]

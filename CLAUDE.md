@@ -18,15 +18,21 @@ framework) que se publica solo en Vercel al hacer push a `origin/main`
 ## Archivos
 
 - **`index.html`** — página única (secciones con anclas `#inicio`,
-  `#institucional`, `#galeria`, `#publicaciones`, `#contacto`), es la que
-  hay que editar para cambios de contenido/SEO.
+  `#institucional`, `#galeria`, `#productos`, `#contacto`), es la que
+  hay que editar para cambios de contenido/SEO. La sección `#productos`
+  (antes "Publicaciones") es el catálogo de 12 tarjetas con foto
+  `img/project-N.jpg`; en pantallas táctiles el texto de cada tarjeta se
+  ve siempre, en escritorio aparece al pasar el mouse.
 - **`css/styles.css`**, **`js/script.js`** — estilos y lógica principal
   (menú, formulario, sliders, tema claro/oscuro).
 - **`js/hero3d.js`** — fondo 3D del hero con Three.js.
 - **`img/`** — imágenes estáticas del sitio (logos, fondos, fotos de
-  "Publicaciones").
-- **`galeria/`** — fotos de obra (`obra-N.jpg`) + `photos.json` que lista
-  cuáles se muestran en el slider "Galería de Trabajos". Ese slider hace
+  "Productos"). `project-3.jpg` tiene las caras de dos niños difuminadas a
+  propósito; si se vuelve a reemplazar esa foto, mantener el difuminado.
+- **`galeria/`** — fotos de obra (`obra-N.jpg`, 19 fotos) + `photos.json`,
+  una lista de objetos `{file, title, description}`: cada foto lleva su
+  propio título (obra - ubicación) y descripción técnica, que son los
+  textos que ve el usuario en el slider "Galería de Trabajos". Ese slider hace
   `fetch()` de `photos.json`, por lo que **no funciona abriendo el HTML
   directo con `file://`** (bloqueo de CORS del navegador) — hace falta
   server local, ver más abajo.

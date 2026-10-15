@@ -348,38 +348,14 @@ document.addEventListener("DOMContentLoaded", () => {
             slide.className = `slider-slide ${idx === 0 ? "active" : ""}`;
             slide.setAttribute("data-slide-index", idx);
 
-            // Generate professional captions completely avoiding raw file names
-            const titles = [
-                "Línea Modena Premium",
-                "Doble Vidriado Hermético (DVH)",
-                "Puerta Corrediza de Alta Gama",
-                "Frente Integrado Templado",
-                "Aislamiento Termoacústico",
-                "Perfilería Anodizada",
-                "Ventanal Panorámico",
-                "Herrajes de Precisión",
-                "Aberturas de Alta Prestación",
-                "Detalles de Hermeticidad"
-            ];
-            const descriptions = [
-                "Carpintería de aluminio de alta gama integrada en fachadas residenciales modernas.",
-                "Instalación de cristales con doble vidriado hermético para máximo aislamiento.",
-                "Sistemas corredizos de deslizamiento suave y perfiles de alta resistencia.",
-                "Vidrios de seguridad templados y laminados colocados bajo estrictas normas de ingeniería.",
-                "Uso de burletes de EPDM y felpa de alta densidad que garantizan estanqueidad al viento y agua.",
-                "Perfilería con tratamiento anodizado que resiste agentes corrosivos y paso del tiempo.",
-                "Hojas de gran tamaño que maximizan la luminosidad y vista de tus ambientes.",
-                "Accesorios importados que garantizan un funcionamiento suave y duradero en el uso cotidiano.",
-                "Tipologías diseñadas a medida que combinan confort acústico, hermeticidad y sofisticación.",
-                "Montaje técnico y calibración precisa de marcos y hojas en obra."
-            ];
-
-            const title = titles[idx % titles.length];
-            const description = descriptions[idx % descriptions.length];
+            // Cada foto trae su propio título y descripción desde galeria/photos.json
+            const item = typeof photo === "string" ? { file: photo, title: "Obra Altum", description: "" } : photo;
+            const title = item.title;
+            const description = item.description;
 
             slide.innerHTML = `
                 <div class="slide-media">
-                    <img src="galeria/${photo}" alt="${title}" loading="${idx === 0 ? "eager" : "lazy"}">
+                    <img src="galeria/${item.file}" alt="${title}" loading="${idx === 0 ? "eager" : "lazy"}">
                 </div>
                 <div class="slide-caption">
                     <h3>${title}</h3>
